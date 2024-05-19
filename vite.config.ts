@@ -11,7 +11,7 @@ export default defineConfig({
       ],
       output: {
         assetFileNames: '[name][extname]',
-        dir: 'theme/keywind/login/resources/dist',
+        dir: 'src/login/resources/dist',
         entryFileNames: '[name].js',
       },
     },

@@ -1,10 +1,15 @@
-# :wind_face: Keywind
+# bluedot-keycloak-theme
 
-Keywind is a component-based Keycloak Login Theme built with [Tailwind CSS](https://github.com/tailwindlabs/tailwindcss) and [Alpine.js](https://github.com/alpinejs/alpine).
+This is a component-based [Keycloak](https://www.keycloak.org/) login theme built with [Tailwind CSS](https://github.com/tailwindlabs/tailwindcss) and [Alpine.js](https://github.com/alpinejs/alpine). It's a fork of [Keywind](https://github.com/lukin/keywind).
 
-![Preview](./preview.png)
+![Screenshot of styled login page](./preview.png)
 
-### Styled Pages
+We're taking a 'good enough' approach to theming here. Notably:
+- We have not set up custom fonts
+- We are not using our React component library (because Keycloak wants weird ftl templates)
+  - We decided not to use [Keycloakify](https://www.keycloakify.dev/) as this looked far more complex, and more work to edit from than Keywind
+
+## Styled Pages
 
 - Error
 - Login
@@ -29,86 +34,38 @@ Keywind is a component-based Keycloak Login Theme built with [Tailwind CSS](http
 - WebAuthn Error
 - WebAuthn Register
 
-### Identity Provider Icons
-
-- Apple
-- Bitbucket
-- Discord
-- Facebook
-- GitHub
-- GitLab
-- Google
-- Instagram
-- LinkedIn
-- Microsoft
-- OpenID
-- Red Hat OpenShift
-- PayPal
-- Slack
-- Stack Overflow
-- Twitter
-
 ## Installation
 
-Keywind has been designed with component-based architecture from the start, and **you can customize as little or as much Keywind as you need**:
+1. Download the jar from the [releases page](https://github.com/bluedot/bluedot-keycloak-theme/releases).
+2. Copy it into your `providers` folder.
+3. In Keycloak, navigate to 'Realm settings > Themes', and set the 'Login theme' to 'bluedot-keycloak-theme'.
 
-1. [Deploy Keywind Login Theme](https://www.keycloak.org/docs/latest/server_development/#deploying-themes)
-2. [Create your own Login Theme](https://www.keycloak.org/docs/latest/server_development/#creating-a-theme)
-3. Specify parent theme in [theme properties](https://www.keycloak.org/docs/latest/server_development/#theme-properties):
+<details>
+<summary>Example production Dockerfile</summary>
 
-```
-parent=keywind
-```
+```dockerfile
+FROM quay.io/keycloak/keycloak:latest as base
 
-4. Brand and customize components with [FreeMarker](https://freemarker.apache.org/docs/dgui_quickstart_template.html)
+### Build
+FROM base as builder
+WORKDIR /opt/keycloak
+ENV KC_DB=postgres
+COPY ./src/bluedot-keycloak-theme.jar /opt/keycloak/providers
+RUN /opt/keycloak/bin/kc.sh build
 
-## Customization
-
-### Theme
-
-When you do need to customize a palette, you can configure your colors under the `colors` key in the `theme` section of Tailwind config file:
-
-`tailwind.config.js`
-
-```js
-module.exports = {
-  theme: {
-    extend: {
-      colors: {
-        primary: colors.red,
-      },
-    },
-  },
-};
+### Final image
+FROM base
+COPY --from=builder /opt/keycloak/ /opt/keycloak/
+ENV KEYCLOAK_ADMIN=admin
+ENTRYPOINT ["/opt/keycloak/bin/kc.sh"]
+CMD [ "start", "--optimized" ]
 ```
 
-Read more about Tailwind CSS configuration in the [documentation](https://tailwindcss.com/docs/configuration).
+</details>
 
-### Components
+## Contributing
 
-You can update Keywind components in your own child theme. For example, create a copy of the `body` component and change the background:
-
-`theme/mytheme/login/components/atoms/body.ftl`
-
-```
-<#macro kw>
-  <body class="bg-primary-100">
-    <#nested>
-  </body>
-</#macro>
-```
-
-## Build
-
-When you're ready to deploy your own theme, run the build command to generate a static production build.
-
-```bash
-pnpm install
-pnpm build
-```
-
-To deploy a theme as an archive, create a JAR archive with the theme resources.
-
-```bash
-pnpm build:jar
-```
+1. Clone the repository
+2. Install [Node.js](https://nodejs.org/)
+3. Edit files - usually in the `theme` folder, in particular the `components` subfolder
+4. Run `npm run build` to create [`dist/bluedot-keycloak-theme.jar`](./out/bluedot-keycloak-theme.jar) which can be installed as above

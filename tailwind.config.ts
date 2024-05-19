@@ -10,8 +10,20 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: colors.blue,
-        secondary: colors.gray,
+        secondary: colors.stone,
+
+        bluedot: {
+          lighter: '#CCD7FF',
+          light: '#6687FF',
+          normal: '#0037FF',
+          dark: '#002199',
+          darker: '#00114D',
+          black: '#1E1E1E',
+        },
+        cream: {
+          normal: '#FFFCF7',
+          dark: '#D9D6D2',
+        },
 
         provider: {
           apple: '#000000',
