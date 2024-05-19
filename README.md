@@ -69,3 +69,13 @@ CMD [ "start", "--optimized" ]
 2. Install [Node.js](https://nodejs.org/)
 3. Edit files - usually in the `theme` folder, in particular the `components` subfolder
 4. Run `npm run build` to create [`dist/bluedot-keycloak-theme.jar`](./out/bluedot-keycloak-theme.jar) which can be installed as above
+
+## Releases
+
+Versions follow the [semantic versioning spec](https://semver.org/).
+
+To release:
+
+1. Use `npm version <major | minor | patch>` to bump the version
+2. Run `git push --follow-tags` to push with tags
+3. Wait for GitHub Actions to publish to GitHub releases.
