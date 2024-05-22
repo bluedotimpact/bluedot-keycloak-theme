@@ -9,7 +9,8 @@ We're taking a 'good enough' approach to theming here. Notably:
 - We are not using our React component library (because Keycloak wants weird ftl templates)
   - We decided not to use [Keycloakify](https://www.keycloakify.dev/) as this looked far more complex, and more work to edit from than Keywind
 
-## Styled Pages
+<details>
+<summary>List of styled pages</summary>
 
 - Error
 - Login
@@ -33,10 +34,11 @@ We're taking a 'good enough' approach to theming here. Notably:
 - WebAuthn Authenticate
 - WebAuthn Error
 - WebAuthn Register
+</details>
 
 ## Installation
 
-1. Download the jar from the [releases page](https://github.com/bluedot/bluedot-keycloak-theme/releases).
+1. Download the jar from the [releases page](https://github.com/bluedotimpact/bluedot-keycloak-theme/releases).
 2. Copy it into your `providers` folder.
 3. In Keycloak, navigate to 'Realm settings > Themes', and set the 'Login theme' to 'bluedot-keycloak-theme'.
 
