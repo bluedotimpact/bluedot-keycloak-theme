@@ -2,7 +2,7 @@ import type { Config } from 'tailwindcss';
 import colors from 'tailwindcss/colors';
 
 export default {
-  content: ['./theme/**/*.ftl'],
+  content: ['./src/login/**/*.ftl'],
   experimental: {
     optimizeUniversalDefaults: true,
   },
