@@ -1,3 +1,6 @@
+# This Dockerfile is only intended to run a local preview of the theme
+# See the README for a Dockerfile that would be better suited to using in production
+
 FROM quay.io/keycloak/keycloak:latest AS base
 
 ENV KEYCLOAK_ADMIN=admin
