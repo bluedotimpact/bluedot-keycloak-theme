@@ -20,7 +20,7 @@
   .separate::after,
   .separate::before {
     content: '';
-    @apply border-b border-stone-300 flex-1;
+    @apply border-b-2 border-stone-300 flex-1;
   }
 
   .separate:not(:empty)::after {

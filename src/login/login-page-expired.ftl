@@ -7,10 +7,10 @@
     ${msg("pageExpiredTitle")}
   <#elseif section="form">
     <@buttonGroup.kw>
-      <@button.kw color="primary" component="a" href=url.loginRestartFlowUrl>
+      <@button.kw variant="primary" component="a" href=url.loginRestartFlowUrl>
         ${msg("doTryAgain")}
       </@button.kw>
-      <@button.kw color="secondary" component="a" href=url.loginAction>
+      <@button.kw variant="secondary" component="a" href=url.loginAction>
         ${msg("doContinue")}
       </@button.kw>
     </@buttonGroup.kw>

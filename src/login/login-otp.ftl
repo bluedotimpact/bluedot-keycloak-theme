@@ -41,7 +41,7 @@
         type="text"
       />
       <@buttonGroup.kw>
-        <@button.kw color="primary" name="submitAction" type="submit">
+        <@button.kw variant="primary" name="submitAction" type="submit">
           ${msg("doLogIn")}
         </@button.kw>
       </@buttonGroup.kw>

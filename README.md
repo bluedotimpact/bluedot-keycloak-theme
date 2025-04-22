@@ -2,7 +2,16 @@
 
 This is a component-based [Keycloak](https://www.keycloak.org/) login theme built with [Tailwind CSS](https://github.com/tailwindlabs/tailwindcss) and [Alpine.js](https://github.com/alpinejs/alpine). It's a fork of [Keywind](https://github.com/lukin/keywind).
 
-![Screenshot of styled login page](./preview.png)
+## **Screenshots**
+
+| | |
+|:-------------------------:|:-------------------------:|
+| **Login** | **Registration** |
+| ![Login](screenshots/login.png) | ![Register](screenshots/register.png) |
+| **IdP Linking Warning** | **IdP Linking via Email** |
+| ![Login IDP Link Confirm](screenshots/login-idp-link-confirm.png) | ![Login IDP Link Email](screenshots/login-idp-link-email.png) |
+| **Password Reset** | |
+| ![Login Reset Password](screenshots/login-reset-password.png) | |
 
 We're taking a 'good enough' approach to theming here. Notably:
 - We have not set up custom fonts
@@ -16,6 +25,7 @@ We're taking a 'good enough' approach to theming here. Notably:
 - Login
 - Login Config TOTP
 - Login IDP Link Confirm
+- Login IDP Link Email
 - Login OAuth Grant
 - Login OTP
 - Login Page Expired
@@ -41,6 +51,8 @@ We're taking a 'good enough' approach to theming here. Notably:
 1. Download the jar from the [releases page](https://github.com/bluedotimpact/bluedot-keycloak-theme/releases).
 2. Copy it into your `providers` folder.
 3. In Keycloak, navigate to 'Realm settings > Themes', and set the 'Login theme' to 'bluedot-keycloak-theme'.
+
+If you want to use the BlueDot Impact logo, set your realm HTML display name to 'BlueDot Impact'.
 
 <details>
 <summary>Example production Dockerfile</summary>
@@ -72,6 +84,17 @@ CMD [ "start", "--optimized" ]
 3. Install dependencies with `npm install`
 4. Edit files - usually in the `theme` folder, in particular the `components` subfolder
 5. Run `npm run build` to create [`dist/bluedot-keycloak-theme.jar`](./dist/bluedot-keycloak-theme.jar) which can be installed as above
+
+## Testing with Docker
+
+You can use the included test Dockerfile to quickly test your theme in a Keycloak instance:
+
+1. Install Node.js and Docker
+2. Install Postgres (see [Dockerfile](./Dockerfile)), or comment out the lines about Postgres in [Dockerfile](./Dockerfile)
+3. Run `npm run start`
+4. Login to Keycloak at http://localhost:8080, with username `admin` and password `admin`
+5. Navigate to 'Realm settings > Themes', and set the 'Login theme' to 'bluedot-keycloak-theme'
+6. Log out to see the themed login flow
 
 ## Releases
 

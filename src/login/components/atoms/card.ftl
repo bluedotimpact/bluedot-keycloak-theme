@@ -1,7 +1,7 @@
 <#macro kw content="" footer="" header="">
-  <div class="border-2 border-stone-300 p-8 space-y-6">
+  <div class="bg-cream-normal rounded-lg p-12 space-y-8">
     <#if header?has_content>
-      <div class="space-y-4">
+      <div class="space-y-2">
         ${header}
       </div>
     </#if>

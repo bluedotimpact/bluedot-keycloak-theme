@@ -36,17 +36,17 @@
     <dependency>
       <groupId>org.keycloak</groupId>
       <artifactId>keycloak-server-spi-private</artifactId>
-      <version>22.0.1</version>
+      <version>26.2.0</version>
     </dependency>
     <dependency>
       <groupId>org.keycloak</groupId>
       <artifactId>keycloak-services</artifactId>
-      <version>22.0.1</version>
+      <version>26.2.0</version>
     </dependency>
     <dependency>
       <groupId>org.keycloak</groupId>
       <artifactId>keycloak-themes</artifactId>
-      <version>22.0.1</version>
+      <version>26.2.0</version>
     </dependency>
   </dependencies>
 

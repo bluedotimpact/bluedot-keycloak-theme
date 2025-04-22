@@ -56,7 +56,7 @@
         />
         <@buttonGroup.kw>
           <#if isAppInitiatedAction??>
-            <@button.kw color="primary" type="submit">
+            <@button.kw variant="primary" type="submit">
               ${msg("recovery-codes-action-complete")}
             </@button.kw>
             <@button.kw
@@ -69,7 +69,7 @@
               ${msg("recovery-codes-action-cancel")}
             </@button.kw>
           <#else>
-            <@button.kw color="primary" type="submit">
+            <@button.kw variant="primary" type="submit">
               ${msg("recovery-codes-action-complete")}
             </@button.kw>
           </#if>

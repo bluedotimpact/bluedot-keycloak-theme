@@ -7,10 +7,12 @@
     ${msg("confirmLinkIdpTitle")}
   <#elseif section="form">
     <@form.kw action=url.loginAction method="post">
-      <@button.kw color="primary" name="submitAction" type="submit" value="updateProfile">
+      <#--
+      <@button.kw variant="primary" name="submitAction" type="submit" value="updateProfile">
         ${msg("confirmLinkIdpReviewProfile")}
       </@button.kw>
-      <@button.kw color="primary" name="submitAction" type="submit" value="linkAccount">
+      -->
+      <@button.kw variant="primary" name="submitAction" type="submit" value="linkAccount">
         ${msg("confirmLinkIdpContinue", idpDisplayName)}
       </@button.kw>
     </@form.kw>

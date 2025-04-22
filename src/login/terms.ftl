@@ -10,10 +10,10 @@
     ${kcSanitize(msg("termsText"))?no_esc}
     <@form.kw action=url.loginAction method="post">
       <@buttonGroup.kw>
-        <@button.kw color="primary" name="accept" type="submit">
+        <@button.kw variant="primary" name="accept" type="submit">
           ${msg("doAccept")}
         </@button.kw>
-        <@button.kw color="secondary" name="cancel" type="submit">
+        <@button.kw variant="secondary" name="cancel" type="submit">
           ${msg("doDecline")}
         </@button.kw>
       </@buttonGroup.kw>

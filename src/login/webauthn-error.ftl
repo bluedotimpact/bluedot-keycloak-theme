@@ -23,7 +23,7 @@
         </@button.kw>
         <#if isAppInitiatedAction??>
           <form action="${url.loginAction}" method="post">
-            <@button.kw color="secondary" name="cancel-aia" type="submit" value="true">
+            <@button.kw variant="secondary" name="cancel-aia" type="submit" value="true">
               ${msg("doCancel")}
             </@button.kw>
           </form>

@@ -26,11 +26,11 @@
     </#if>
     <@form.kw action=url.loginAction method="post">
       <@buttonGroup.kw>
-        <@button.kw color="primary" name="login" type="submit">
+        <@button.kw variant="primary" name="login" type="submit">
           ${msg("doContinue")}
         </@button.kw>
         <#if x509.formData.isUserEnabled??>
-          <@button.kw color="secondary" name="cancel" type="submit">
+          <@button.kw variant="secondary" name="cancel" type="submit">
             ${msg("doIgnore")}
           </@button.kw>
         </#if>
