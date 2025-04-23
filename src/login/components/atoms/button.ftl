@@ -1,17 +1,17 @@
-<#macro kw color="" component="button" size="" rest...>
-  <#switch size>
-    <#case "medium">
-      <#assign sizeClass="px-3 py-1.5 text-sm">
+<#macro kw variant="primary" component="button" rest...>
+  <#switch variant>
+    <#case "primary">
+      <#assign variantClass="bg-bluedot-normal text-white hover:text-bluedot-lighter focus:text-bluedot-lighter">
       <#break>
-    <#case "small">
-      <#assign sizeClass="px-2 py-1 text-xs">
+    <#case "secondary">
+      <#assign variantClass="bg-transparent border border-bluedot-normal text-bluedot-normal hover:bg-bluedot-lighter focus:bg-bluedot-lighter">
       <#break>
     <#default>
-      <#assign sizeClass="leading-4 py-1.5 px-3 text-base">
+      <#assign variantClass="bg-bluedot-normal text-white">
   </#switch>
 
   <${component}
-    class="${sizeClass} border-black text-black hover:border-bluedot-normal hover:bg-bluedot-lighter focus-visible:border-bluedot-normal focus-visible:bg-bluedot-lighter focus-visible:outline-bluedot-normal active:border-bluedot-normal active:bg-bluedot-normal active:text-white font-normal border rounded-[20px] transition-all duration-200 inline-block cursor-pointer focus-visible:outline-1 outline-none outline-offset-0"
+    class="flex items-center justify-center rounded-sm transition-all duration-200 text-sm px-4 py-3 w-fit font-[650] whitespace-nowrap ${variantClass} cursor-pointer focus-visible:outline-1 outline-none outline-offset-0 w-full"
 
     <#list rest as attrName, attrValue>
       ${attrName}="${attrValue}"

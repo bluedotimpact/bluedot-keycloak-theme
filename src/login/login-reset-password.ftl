@@ -9,7 +9,7 @@
 <#assign usernameLabel><@usernameLabel.kw /></#assign>
 
 <@layout.registrationLayout
-  displayInfo=true
+  displayFooter=true
   displayMessage=!messagesPerField.existsError("username")
   ;
   section
@@ -17,6 +17,7 @@
   <#if section="header">
     ${msg("emailForgotTitle")}
   <#elseif section="form">
+    <p>${msg("emailInstruction")}</p>
     <@form.kw action=url.loginAction method="post">
       <@input.kw
         autocomplete=realm.loginWithEmailAllowed?string("email", "username")
@@ -29,16 +30,16 @@
         value=(auth?has_content && auth.showUsername())?then(auth.attemptedUsername, '')
       />
       <@buttonGroup.kw>
-        <@button.kw color="primary" type="submit">
+        <@button.kw variant="primary" type="submit">
           ${msg("doSubmit")}
         </@button.kw>
       </@buttonGroup.kw>
     </@form.kw>
-  <#elseif section="info">
-    ${msg("emailInstruction")}
-  <#elseif section="nav">
-    <@link.kw color="secondary" href=url.loginUrl size="small">
-      ${kcSanitize(msg("backToLogin"))?no_esc}
-    </@link.kw>
+  <#elseif section="footer">
+    <div class="text-center text-white">
+      <@link.kw color="white" href=url.loginUrl>
+        ${kcSanitize(msg("backToLogin"))?no_esc}
+      </@link.kw>
+    </div>
   </#if>
 </@layout.registrationLayout>

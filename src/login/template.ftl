@@ -6,22 +6,26 @@
 <#import "components/atoms/container.ftl" as container>
 <#import "components/atoms/heading.ftl" as heading>
 <#import "components/atoms/logo.ftl" as logo>
-<#import "components/atoms/nav.ftl" as nav>
+<#import "components/atoms/bluedot-logo.ftl" as bluedotLogo>
 <#import "components/molecules/locale-provider.ftl" as localeProvider>
 <#import "components/molecules/username.ftl" as username>
 
 <#macro
   registrationLayout
-  displayInfo=false
+  displayFooter=false
   displayMessage=true
   displayRequiredFields=false
   script=""
   showAnotherWayIfPresent=true
 >
   <#assign cardHeader>
-    <@logo.kw>
-      ${kcSanitize(msg("loginTitleHtml", (realm.displayNameHtml!"")))?no_esc}
-    </@logo.kw>
+    <#if (realm.displayNameHtml?? && (realm.displayNameHtml == "BlueDot Impact" || realm.displayNameHtml == "BlueDot"))>
+      <@bluedotLogo.kw />
+    <#else>
+      <@logo.kw>
+        ${kcSanitize(msg("loginTitleHtml", (realm.displayNameHtml!"")))?no_esc}
+      </@logo.kw>
+    </#if>
     <#if !(auth?has_content && auth.showUsername() && !auth.showResetCredentials())>
       <@heading.kw>
         <#nested "header">
@@ -51,18 +55,12 @@
     <#if auth?has_content && auth.showTryAnotherWayLink() && showAnotherWayIfPresent>
       <form action="${url.loginAction}" method="post">
         <input name="tryAnotherWay" type="hidden" value="on" />
-        <@button.kw color="secondary" type="submit">
+        <@button.kw variant="secondary" type="submit">
           ${msg("doTryAnotherWay")}
         </@button.kw>
       </form>
     </#if>
     <#nested "socialProviders">
-  </#assign>
-
-  <#assign cardFooter>
-    <#if displayInfo>
-      <#nested "info">
-    </#if>
   </#assign>
 
   <html<#if realm.internationalizationEnabled> lang="${locale.currentLanguageTag}"</#if>>
@@ -71,13 +69,15 @@
     </head>
     <@body.kw>
       <@container.kw>
-        <@card.kw content=cardContent footer=cardFooter header=cardHeader />
-        <@nav.kw>
-          <#nested "nav">
-          <#if realm.internationalizationEnabled && locale.supported?size gt 1>
+        <@card.kw content=cardContent header=cardHeader />
+        <#if displayFooter>
+          <#nested "footer">
+        </#if>
+        <#if realm.internationalizationEnabled && locale.supported?size gt 1>
+          <div class="flex justify-around">
             <@localeProvider.kw currentLocale=locale.current locales=locale.supported />
-          </#if>
-        </@nav.kw>
+          </div>
+        </#if>
       </@container.kw>
     </@body.kw>
   </html>

@@ -50,10 +50,10 @@
     <@form.kw action=url.oauthAction method="post">
       <input name="code" type="hidden" value="${oauth.code}">
       <@buttonGroup.kw>
-        <@button.kw color="primary" name="accept" type="submit">
+        <@button.kw variant="primary" name="accept" type="submit">
           ${msg("doYes")}
         </@button.kw>
-        <@button.kw color="secondary" name="cancel" type="submit">
+        <@button.kw variant="secondary" name="cancel" type="submit">
           ${msg("doNo")}
         </@button.kw>
       </@buttonGroup.kw>

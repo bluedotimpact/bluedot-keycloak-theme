@@ -11,7 +11,7 @@
 <#assign usernameLabel><@usernameLabel.kw /></#assign>
 
 <@layout.registrationLayout
-  displayInfo=realm.password && realm.registrationAllowed && !registrationDisabled??
+  displayFooter=true
   displayMessage=!messagesPerField.existsError("username", "password")
   ;
   section
@@ -64,17 +64,17 @@
           </div>
         </#if>
         <@buttonGroup.kw>
-          <@button.kw color="primary" name="login" type="submit">
+          <@button.kw variant="primary" name="login" type="submit">
             ${msg("doLogIn")}
           </@button.kw>
         </@buttonGroup.kw>
       </@form.kw>
     </#if>
-  <#elseif section="info">
+  <#elseif section="footer">
     <#if realm.password && realm.registrationAllowed && !registrationDisabled??>
-      <div class="text-center">
+      <div class="text-center text-white">
         ${msg("noAccount")}
-        <@link.kw color="primary" href=url.registrationUrl>
+        <@link.kw color="white" href=url.registrationUrl>
           ${msg("doRegister")}
         </@link.kw>
       </div>

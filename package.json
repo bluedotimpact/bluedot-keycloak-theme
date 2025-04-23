@@ -3,6 +3,7 @@
   "name": "bluedot-keycloak-theme",
   "license": "Apache-2.0",
   "scripts": {
+    "start": "bash start.sh",
     "build": "tsc && vite build && vite-node tools/build",
     "test": "mvn test"
   },

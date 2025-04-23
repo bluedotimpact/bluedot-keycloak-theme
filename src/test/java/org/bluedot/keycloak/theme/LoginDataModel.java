@@ -9,7 +9,9 @@ public class LoginDataModel {
   public static Map<String, Object> createDataModel() {
     Map<String, Object> dataModel = new HashMap<>();
     dataModel.put("auth", createAuthModel());
+    dataModel.put("brokerContext", createBrokerContextModel());
     dataModel.put("client", createClientModel());
+    dataModel.put("idpDisplayName", "Google");
     dataModel.put("locale", createLocaleModel());
     dataModel.put("login", createLoginModel());
     dataModel.put("logoutConfirm", createLogoutConfirmModel());
@@ -29,6 +31,13 @@ public class LoginDataModel {
     dataModel.putAll(createWebAuthnModel());
 
     return dataModel;
+  }
+
+  private static Map<String, Object> createBrokerContextModel() {
+    Map<String, Object> brokerContext = new HashMap<>();
+    brokerContext.put("username", "testuser@example.com");
+    brokerContext.put("idpAlias", "identity-provider");
+    return brokerContext;
   }
 
   private static Map<String, Object> createAuthModel() {

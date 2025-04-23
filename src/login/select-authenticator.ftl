@@ -2,7 +2,7 @@
 <#import "components/atoms/form.ftl" as form>
 <#import "components/atoms/link.ftl" as link>
 
-<@layout.registrationLayout displayInfo=false; section>
+<@layout.registrationLayout; section>
   <#if section="header">
     ${msg("loginChooseAuthenticator")}
   <#elseif section="form">

@@ -4,14 +4,16 @@
 <#import "components/atoms/form.ftl" as form>
 <#import "components/atoms/input.ftl" as input>
 <#import "components/atoms/link.ftl" as link>
+<#import "components/molecules/identity-provider.ftl" as identityProvider>
 
 <@layout.registrationLayout
+  displayFooter=true
   displayMessage=!messagesPerField.existsError("email", "username", "password", "password-confirm")
   ;
   section
 >
   <#if section="header">
-    ${msg("registerTitle")}
+    Sign up to learn alongside thousands of professionals
   <#elseif section="form">
     <@form.kw action=url.registrationAction method="post">
       <@input.kw
@@ -56,14 +58,21 @@
         <div class="g-recaptcha" data-sitekey="${recaptchaSiteKey}" data-size="compact"></div>
       </#if>
       <@buttonGroup.kw>
-        <@button.kw color="primary" type="submit">
-          ${msg("doRegister")}
+        <@button.kw variant="primary" type="submit">
+          Sign up
         </@button.kw>
       </@buttonGroup.kw>
     </@form.kw>
-  <#elseif section="nav">
-    <@link.kw color="secondary" href=url.loginUrl size="small">
-      ${kcSanitize(msg("backToLogin"))?no_esc}
-    </@link.kw>
+  <#elseif section="footer">
+    <div class="text-center text-white">
+      Already have an account?
+      <@link.kw color="white" href=url.loginUrl>
+        ${msg("doLogIn")}
+      </@link.kw>
+    </div>
+  <#elseif section="socialProviders">
+    <#if realm.password && social.providers??>
+      <@identityProvider.kw providers=social.providers />
+    </#if>
   </#if>
 </@layout.registrationLayout>

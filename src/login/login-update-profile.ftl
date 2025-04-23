@@ -38,14 +38,14 @@
       />
       <@buttonGroup.kw>
         <#if isAppInitiatedAction??>
-          <@button.kw color="primary" type="submit">
+          <@button.kw variant="primary" type="submit">
             ${msg("doSubmit")}
           </@button.kw>
-          <@button.kw color="secondary" name="cancel-aia" type="submit" value="true">
+          <@button.kw variant="secondary" name="cancel-aia" type="submit" value="true">
             ${msg("doCancel")}
           </@button.kw>
         <#else>
-          <@button.kw color="primary" type="submit">
+          <@button.kw variant="primary" type="submit">
             ${msg("doSubmit")}
           </@button.kw>
         </#if>
