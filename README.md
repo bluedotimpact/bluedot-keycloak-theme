@@ -58,13 +58,14 @@ If you want to use the BlueDot Impact logo, set your realm HTML display name to 
 <summary>Example production Dockerfile</summary>
 
 ```dockerfile
-FROM quay.io/keycloak/keycloak:latest as base
+FROM quay.io/keycloak/keycloak:latest AS base
 
 ### Build
-FROM base as builder
+FROM base AS builder
 WORKDIR /opt/keycloak
 ENV KC_DB=postgres
-COPY ./src/bluedot-keycloak-theme.jar /opt/keycloak/providers
+ADD --chown=keycloak:keycloak --chmod=644 ./src/bluedot-keycloak-theme.jar /opt/keycloak/providers/
+RUN touch -m --date=@1743465600 /opt/keycloak/providers/*
 RUN /opt/keycloak/bin/kc.sh build
 
 ### Final image
