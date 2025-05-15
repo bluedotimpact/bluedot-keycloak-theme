@@ -3,9 +3,6 @@
 
 <#macro kw providers=[]>
   <#if providers?has_content>
-    <div class="separate text-secondary-600 text-sm">
-      OR
-    </div>
     <div class="flex flex-col gap-4">
       <#list providers as provider>
       <@button.kw 
@@ -25,6 +22,9 @@
         </p>
       </@button.kw>
       </#list>
+    </div>
+    <div class="separate text-secondary-600 text-sm">
+      OR
     </div>
   </#if>
 </#macro>
