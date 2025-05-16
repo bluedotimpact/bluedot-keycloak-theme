@@ -91,7 +91,12 @@ CMD [ "start", "--optimized" ]
 You can use the included test Dockerfile to quickly test your theme in a Keycloak instance:
 
 1. Install Node.js and Docker
-2. Install Postgres (see [Dockerfile](./Dockerfile)), or comment out the lines about Postgres in [Dockerfile](./Dockerfile)
+2. If you haven't already, install Postgres:
+  a. `brew install postgresql@17`
+  b. `echo 'export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"' >> $HOME/.zshrc`
+  c. `/opt/homebrew/opt/postgresql@17/bin/createuser -s postgres`
+  d. `psql -U postgres -c "ALTER USER postgres PASSWORD 'postgres';"`
+  e. `psql -U postgres -c 'create database "bluedot-keycloak-theme";'`
 3. Run `npm run start`
 4. Login to Keycloak at http://localhost:8080, with username `admin` and password `admin`
 5. Navigate to 'Realm settings > Themes', and set the 'Login theme' to 'bluedot-keycloak-theme'
