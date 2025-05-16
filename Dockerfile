@@ -11,6 +11,7 @@ ENV KEYCLOAK_ADMIN_PASSWORD=admin
 # Then run: psql -U postgres -c 'create database "bluedot-keycloak-theme";'
 ENV KC_DB=postgres
 # If you're running into JDBC connection issues, try replacing "host.docker.internal" with the IP returned by `ip route get 1.1.1.1` from colima
+ENV KC_DB_URL=jdbc:postgresql://host.docker.internal:5432/bluedot-keycloak-theme?user=postgres&password=postgres
 
 COPY ./dist/bluedot-keycloak-theme.jar /opt/keycloak/providers
 
