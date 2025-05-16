@@ -31,3 +31,25 @@
     @apply mr-2;
   }
 }
+
+@layer utilities {
+  .container-lined {
+    @apply border border-bluedot-charcoal-light rounded-lg;
+  }
+
+  .container-active {
+    @apply border-2 border-bluedot-normal rounded-lg;
+  }
+
+  .cta-button--primary {
+    @apply flex items-center justify-center rounded-sm transition-all duration-200 text-sm px-4 py-3 w-fit font-[650] whitespace-nowrap cursor-pointer bg-bluedot-normal link-on-dark;
+  }
+
+  .cta-button--secondary {
+    @apply flex items-center justify-center rounded-sm transition-all duration-200 text-sm px-4 py-3 w-fit font-[650] whitespace-nowrap cursor-pointer bg-transparent border border-bluedot-normal text-bluedot-normal hover:bg-bluedot-lighter;
+  }
+
+  .link-on-dark {
+    @apply text-bluedot-cream-normal hover:text-bluedot-lighter cursor-pointer;
+  }
+}
