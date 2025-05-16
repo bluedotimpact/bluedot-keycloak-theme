@@ -27,9 +27,14 @@
       </@logo.kw>
     </#if>
     <#if !(auth?has_content && auth.showUsername() && !auth.showResetCredentials())>
-      <@heading.kw>
-        <#nested "header">
-      </@heading.kw>
+      <#assign headerTitle><#nested "title"></#assign>
+      <#assign headerSubtitle><#nested "subtitle"></#assign>
+      <#assign headerMiniTitle><#nested "miniTitle"></#assign>
+      <@heading.kw
+        title=headerTitle
+        subtitle=headerSubtitle
+        miniTitle=headerMiniTitle
+      />
     <#else>
       <#nested "show-username">
       <@username.kw

@@ -4,6 +4,7 @@
 <#import "components/atoms/form.ftl" as form>
 <#import "components/atoms/input.ftl" as input>
 <#import "components/atoms/link.ftl" as link>
+<#import "components/atoms/heading.ftl" as heading>
 <#import "components/molecules/identity-provider.ftl" as identityProvider>
 
 <@layout.registrationLayout
@@ -12,8 +13,12 @@
   ;
   section
 >
-  <#if section="header">
-    Sign up to learn alongside thousands of professionals
+  <#if section="miniTitle">
+    Sign up
+  <#elseif section="title">
+    Start learning for free
+  <#elseif section="subtitle">
+    Create your free account to start learning right away.
   <#elseif section="form">
     <@form.kw action=url.registrationAction method="post">
       <@input.kw
