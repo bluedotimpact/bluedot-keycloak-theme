@@ -16,8 +16,10 @@
   ;
   section
 >
-  <#if section="header">
-    ${msg("loginAccountTitle")}
+  <#if section="miniTitle">
+    Log in
+  <#elseif section="title">
+    Pick up where you left off
   <#elseif section="form">
     <#if realm.password>
       <@form.kw
