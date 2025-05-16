@@ -4,7 +4,7 @@
 <#macro
   kw
   autofocus=false
-  class="px-2 py-1 border-2 border-stone-200 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-bluedot-normal text-base text-bluedot-black bg-white w-full"
+  class="container-lined w-full px-3 py-2"
   disabled=false
   invalid=false
   label=""
@@ -14,8 +14,8 @@
   type="text"
   rest...
 >
-  <div>
-    <label class="sr-only" for="${name}">
+  <div class="flex flex-col gap-1">
+    <label class="text-sm text-bluedot-charcoal-normal" for="${name}">
       ${label}
     </label>
     <#if type == "password">
@@ -69,7 +69,7 @@
         </#list>
       >
     </#if>
-    <#if invalid?? && message??>
+    <#if invalid && message?has_content>
       <div class="mt-2 text-red-600 text-sm">
         ${message?no_esc}
       </div>
