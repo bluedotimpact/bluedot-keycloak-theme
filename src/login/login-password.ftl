@@ -6,7 +6,7 @@
 <#import "components/atoms/link.ftl" as link>
 
 <@layout.registrationLayout displayMessage=!messagesPerField.existsError("password"); section>
-  <#if section="header">
+  <#if section="title">
     ${msg("doLogIn")}
   <#elseif section="form">
     <@form.kw

@@ -14,7 +14,7 @@
   ;
   section
 >
-  <#if section="header">
+  <#if section="title">
     ${msg("emailForgotTitle")}
   <#elseif section="form">
     <p>${msg("emailInstruction")}</p>

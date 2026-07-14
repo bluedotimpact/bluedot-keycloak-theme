@@ -5,7 +5,7 @@
 <#import "components/atoms/input.ftl" as input>
 
 <@layout.registrationLayout; section>
-  <#if section="header">
+  <#if section="title">
     ${msg("auth-recovery-code-header")}
   <#elseif section="form">
     <@form.kw action=url.loginAction method="post">

@@ -4,7 +4,7 @@
 <#import "components/atoms/form.ftl" as form>
 
 <@layout.registrationLayout displayMessage=false; section>
-  <#if section="header">
+  <#if section="title">
     ${msg("termsTitle")}
   <#elseif section="form">
     ${kcSanitize(msg("termsText"))?no_esc}

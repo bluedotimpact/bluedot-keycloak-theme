@@ -16,7 +16,7 @@
   ;
   section
 >
-  <#if section="header">
+  <#if section="title">
     ${msg("loginTotpTitle")}
   <#elseif section="form">
     <ol class="list-decimal pl-4 space-y-2">

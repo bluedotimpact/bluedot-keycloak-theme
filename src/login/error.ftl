@@ -3,7 +3,7 @@
 <#import "components/atoms/link.ftl" as link>
 
 <@layout.registrationLayout displayMessage=false; section>
-  <#if section="header">
+  <#if section="title">
     ${kcSanitize(msg("errorTitle"))?no_esc}
   <#elseif section="form">
     <@alert.kw color="error">${kcSanitize(message.summary)?no_esc}</@alert.kw>

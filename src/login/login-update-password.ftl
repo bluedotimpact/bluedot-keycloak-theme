@@ -10,7 +10,7 @@
   ;
   section
 >
-  <#if section="header">
+  <#if section="title">
     ${msg("updatePasswordTitle")}
   <#elseif section="form">
     <@form.kw action=url.loginAction method="post">

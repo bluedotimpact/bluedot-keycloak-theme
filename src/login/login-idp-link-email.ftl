@@ -2,7 +2,7 @@
 <#import "components/atoms/link.ftl" as link>
 
 <@layout.registrationLayout; section>
-  <#if section = "header">
+  <#if section = "title">
     ${msg("emailLinkIdpTitle", idpDisplayName)}
   <#elseif section = "form">
     <p id="instruction1" class="instruction">

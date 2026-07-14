@@ -6,7 +6,7 @@
 <#import "components/atoms/form.ftl" as form>
 
 <@layout.registrationLayout script="dist/recoveryCodes.js"; section>
-  <#if section="header">
+  <#if section="title">
     ${msg("recovery-code-config-header")}
   <#elseif section="form">
     <div class="space-y-6" x-data="recoveryCodes">
