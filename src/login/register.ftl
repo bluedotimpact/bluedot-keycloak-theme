@@ -9,7 +9,7 @@
 
 <@layout.registrationLayout
   displayFooter=true
-  displayMessage=!messagesPerField.existsError("email", "username", "password", "password-confirm")
+  displayMessage=!messagesPerField.existsError("firstName", "lastName", "email", "username", "password", "password-confirm")
   ;
   section
 >
@@ -21,6 +21,34 @@
     Create your free account to start learning right away.
   <#elseif section="form">
     <@form.kw action=url.registrationAction method="post">
+      <#-- First/last name are optional; the customers realm User Profile does not mark them required. -->
+      <div class="flex flex-col gap-4 sm:flex-row">
+        <div class="flex-1">
+          <@input.kw
+            autocomplete="given-name"
+            autofocus=true
+            invalid=messagesPerField.existsError("firstName")
+            label=msg("firstName")
+            message=kcSanitize(messagesPerField.get("firstName"))
+            name="firstName"
+            required=false
+            type="text"
+            value=(register.formData.firstName)!''
+          />
+        </div>
+        <div class="flex-1">
+          <@input.kw
+            autocomplete="family-name"
+            invalid=messagesPerField.existsError("lastName")
+            label=msg("lastName")
+            message=kcSanitize(messagesPerField.get("lastName"))
+            name="lastName"
+            required=false
+            type="text"
+            value=(register.formData.lastName)!''
+          />
+        </div>
+      </div>
       <@input.kw
         autocomplete="email"
         invalid=messagesPerField.existsError("email")
