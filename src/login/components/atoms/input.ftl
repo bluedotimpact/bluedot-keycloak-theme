@@ -69,7 +69,7 @@
         </#list>
       >
     </#if>
-    <#if invalid?? && message??>
+    <#if invalid && message?has_content>
       <div class="mt-2 text-red-600 text-sm">
         ${message?no_esc}
       </div>
