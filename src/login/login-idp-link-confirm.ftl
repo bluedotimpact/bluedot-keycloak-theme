@@ -3,7 +3,7 @@
 <#import "components/atoms/form.ftl" as form>
 
 <@layout.registrationLayout; section>
-  <#if section="header">
+  <#if section="title">
     ${msg("confirmLinkIdpTitle")}
   <#elseif section="form">
     <@form.kw action=url.loginAction method="post">

@@ -2,7 +2,7 @@
 <#import "components/atoms/button.ftl" as button>
 
 <@layout.registrationLayout displayMessage=false; section>
-  <#if section = "header">
+  <#if section = "title">
     ${msg("deleteCredentialTitle", credentialLabel)}
   <#elseif section = "form">
     <div id="kc-delete-text">

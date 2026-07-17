@@ -4,8 +4,6 @@
 
 <@layout.registrationLayout script="dist/webAuthnRegister.js"; section>
   <#if section="title">
-    title
-  <#elseif section="header">
     ${kcSanitize(msg("webauthn-registration-title"))?no_esc}
   <#elseif section="form">
     <div x-data="webAuthnRegister">

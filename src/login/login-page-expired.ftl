@@ -3,7 +3,7 @@
 <#import "components/atoms/button-group.ftl" as buttonGroup>
 
 <@layout.registrationLayout; section>
-  <#if section="header">
+  <#if section="title">
     ${msg("pageExpiredTitle")}
   <#elseif section="form">
     <@buttonGroup.kw>

@@ -16,7 +16,7 @@
   ;
   section
 >
-  <#if section="header">
+  <#if section="title">
     ${msg("loginAccountTitle")}
   <#elseif section="form">
     <#if realm.password>

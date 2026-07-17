@@ -4,7 +4,7 @@
 <#import "components/atoms/link.ftl" as link>
 
 <@layout.registrationLayout; section>
-  <#if section="header">
+  <#if section="title">
     ${msg("logoutConfirmTitle")}
   <#elseif section="form">
     <p>${msg("logoutConfirmHeader")}</p>

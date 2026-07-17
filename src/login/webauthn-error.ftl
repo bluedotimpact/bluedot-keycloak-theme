@@ -3,7 +3,7 @@
 <#import "components/atoms/button-group.ftl" as buttonGroup>
 
 <@layout.registrationLayout displayMessage=true; section>
-  <#if section="header">
+  <#if section="title">
     ${kcSanitize(msg("webauthn-error-title"))?no_esc}
   <#elseif section="form">
     <div x-data>
