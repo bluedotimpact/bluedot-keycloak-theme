@@ -39,7 +39,7 @@
           <@input.kw
             autocomplete="family-name"
             invalid=messagesPerField.existsError("lastName")
-            label=msg("lastName")
+            label="Last name (optional)"
             message=kcSanitize(messagesPerField.get("lastName"))
             name="lastName"
             required=false
