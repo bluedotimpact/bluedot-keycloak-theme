@@ -26,7 +26,6 @@
         <div class="flex-1">
           <@input.kw
             autocomplete="given-name"
-            autofocus=true
             invalid=messagesPerField.existsError("firstName")
             label=msg("firstName")
             message=kcSanitize(messagesPerField.get("firstName"))
