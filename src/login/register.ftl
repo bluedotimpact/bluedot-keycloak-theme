@@ -27,7 +27,7 @@
           <@input.kw
             autocomplete="given-name"
             invalid=messagesPerField.existsError("firstName")
-            label=msg("firstName")
+            label="First name (optional)"
             message=kcSanitize(messagesPerField.get("firstName"))
             name="firstName"
             required=false
