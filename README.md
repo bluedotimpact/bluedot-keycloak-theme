@@ -106,8 +106,17 @@ You can use the included test Dockerfile to quickly test your theme in a Keycloa
 
 Versions follow the [semantic versioning spec](https://semver.org/).
 
+`master` is protected and squash-only, so the version bump has to go through a pull request, and the tag has to be created afterwards against the squashed commit.
+
 To release:
 
-1. Use `npm version <major | minor | patch>` to bump the version
-2. Run `git push --follow-tags` to push with tags
-3. Wait for GitHub Actions to publish to GitHub releases.
+1. Branch off `master`, e.g. `git checkout -b release-x.y.z`
+2. Use `npm version <major | minor | patch> --no-git-tag-version` to bump the version
+3. Commit, push, and open a pull request
+4. Once it is merged, tag the squashed commit on `master`:
+   ```sh
+   git checkout master && git pull
+   git tag -a vx.y.z -m "x.y.z"
+   git push origin vx.y.z
+   ```
+5. Wait for GitHub Actions to publish to GitHub releases.
