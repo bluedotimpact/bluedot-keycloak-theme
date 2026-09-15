@@ -6,11 +6,8 @@
   <#if section="title">
     ${msg("confirmLinkIdpTitle")}
   <#elseif section="form">
-    <p id="instruction1" class="instruction text-pretty">
-      ${msg("confirmLinkIdpRevokePasswordNote1", idpDisplayName)}
-    </p>
-    <p id="instruction2" class="instruction text-pretty">
-      ${msg("confirmLinkIdpRevokePasswordNote2")}
+    <p id="instruction" class="instruction text-pretty">
+      ${msg("confirmLinkIdpRevokePasswordNote", idpDisplayName)}
     </p>
     <@form.kw action=url.loginAction method="post">
       <#--
