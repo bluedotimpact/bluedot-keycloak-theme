@@ -6,6 +6,9 @@
   <#if section="title">
     ${msg("confirmLinkIdpTitle")}
   <#elseif section="form">
+    <p id="instruction" class="instruction text-pretty">
+      ${msg("confirmLinkIdpRevokePasswordNote", idpDisplayName)}
+    </p>
     <@form.kw action=url.loginAction method="post">
       <#--
       <@button.kw variant="primary" name="submitAction" type="submit" value="updateProfile">
