@@ -11,7 +11,6 @@ export default {
     extend: {
       colors: {
         secondary: colors.stone,
-
         bluedot: {
           lighter: '#CCD7FF',
           light: '#6687FF',
@@ -19,10 +18,14 @@ export default {
           dark: '#002199',
           darker: '#00114D',
           black: '#1E1E1E',
-        },
-        cream: {
-          normal: '#FFFCF7',
-          dark: '#D9D6D2',
+          charcoal: {
+            light: '#CCCCCC',
+            normal: '#1E1E1E',
+          },
+          cream: {
+            normal: '#FFFCF7',
+            dark: '#D9D6D2',
+          },
         },
       },
     },
